@@ -1,11 +1,20 @@
 package model;
 
-public class Skills extends BaseEntity {
+public class Skills {
+    private Long id;
    private String name;
 
     public Skills(Long id, String name) {
-        super(id);
+        this.id = id;
         this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

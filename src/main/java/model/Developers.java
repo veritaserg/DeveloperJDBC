@@ -1,18 +1,26 @@
 package model;
 
-import java.util.List;
+
 import java.util.Set;
 
-public class Developers extends BaseEntity {
-private String name;
-Accounts accounts;
-Set<Skills> skills;
+public class Developers {
+    private Long id;
+    private String name;
 
-    public Developers(Long id, String name, Accounts accounts, Set<Skills> skills) {
-        super(id);
+    private Set<Skills> skills;
+
+    public Developers(Long id, String name, Set<Skills> skills) {
+        this.id = id;
         this.name = name;
-        this.accounts = accounts;
         this.skills = skills;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -21,14 +29,6 @@ Set<Skills> skills;
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Accounts getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(Accounts accounts) {
-        this.accounts = accounts;
     }
 
     public Set<Skills> getSkills() {

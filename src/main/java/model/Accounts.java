@@ -1,18 +1,37 @@
 package model;
 
-public class Accounts extends BaseEntity {
-private String name;
+public class Accounts  {
+    private Long id;
+private String data;
+private Long developerID;
 
-    public Accounts(Long id, String name) {
-        super(id);
-        this.name = name;
+    public Accounts(Long id, String data, Long developerID) {
+        this.id = id;
+        this.data = data;
+        this.developerID = developerID;
     }
 
-    public String getName() {
-        return name;
+    public Long getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public Long getDeveloperID() {
+        return developerID;
+    }
+
+    public void setDeveloperID(Long developerID) {
+        this.developerID = developerID;
     }
 }
