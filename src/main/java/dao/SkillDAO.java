@@ -1,6 +1,6 @@
 package dao;
 
-import model.Skills;
+import model.Skill;
 
-public interface SkillDAO extends GenericDAO<Skills,Long> {
+public interface SkillDAO extends GenericDAO<Skill,Long> {
 }

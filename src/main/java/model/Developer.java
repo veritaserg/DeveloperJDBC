@@ -3,13 +3,13 @@ package model;
 
 import java.util.Set;
 
-public class Developers {
+public class Developer {
     private Long id;
     private String name;
 
-    private Set<Skills> skills;
+    private Set<Skill> skills;
 
-    public Developers(Long id, String name, Set<Skills> skills) {
+    public Developer(Long id, String name, Set<Skill> skills) {
         this.id = id;
         this.name = name;
         this.skills = skills;
@@ -31,11 +31,11 @@ public class Developers {
         this.name = name;
     }
 
-    public Set<Skills> getSkills() {
+    public Set<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(Set<Skills> skills) {
+    public void setSkills(Set<Skill> skills) {
         this.skills = skills;
     }
 }

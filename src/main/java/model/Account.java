@@ -1,11 +1,11 @@
 package model;
 
-public class Accounts  {
+public class Account {
     private Long id;
 private String data;
 private Long developerID;
 
-    public Accounts(Long id, String data, Long developerID) {
+    public Account(Long id, String data, Long developerID) {
         this.id = id;
         this.data = data;
         this.developerID = developerID;

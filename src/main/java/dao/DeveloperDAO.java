@@ -1,6 +1,6 @@
 package dao;
 
-import model.Developers;
+import model.Developer;
 
-public interface DeveloperDAO extends GenericDAO<Developers,Long> {
+public interface DeveloperDAO extends GenericDAO<Developer,Long> {
 }

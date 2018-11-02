@@ -9,7 +9,7 @@ public interface GenericDAO<T, ID> {
 
     void update(T t);
 
-    void delete(T t);
+    void delete(ID id);
 
     List<T> getAll();
 }

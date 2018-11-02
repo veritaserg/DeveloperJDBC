@@ -1,6 +1,6 @@
 package dao;
 
-import model.Accounts;
+import model.Account;
 
-public interface AccountDAO extends GenericDAO<Accounts,Long> {
+public interface AccountDAO extends GenericDAO<Account,Long> {
 }
