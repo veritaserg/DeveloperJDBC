@@ -6,13 +6,25 @@ import java.util.Set;
 public class Developer {
     private Long id;
     private String name;
-
+    private Long salary;
     private Set<Skill> skills;
+    private Account account;
 
-    public Developer(Long id, String name, Set<Skill> skills) {
+
+    public Developer(Long id, String name, Long salary, Set<Skill> skills, Account account) {
         this.id = id;
         this.name = name;
+        this.salary = salary;
         this.skills = skills;
+        this.account = account;
+    }
+
+    public Long getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Long salary) {
+        this.salary = salary;
     }
 
     public Long getId() {
