@@ -5,6 +5,11 @@ public class Account {
 private String data;
 private Long developerID;
 
+    public Account(String data, Long developerID) {
+        this.data = data;
+        this.developerID = developerID;
+    }
+
     public Account(Long id, String data, Long developerID) {
         this.id = id;
         this.data = data;
