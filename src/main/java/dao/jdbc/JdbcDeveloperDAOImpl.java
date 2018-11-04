@@ -18,6 +18,7 @@ public class JdbcDeveloperDAOImpl implements DeveloperDAO {
         jdbcAccountDAO = new JdbcAccountDAOImpl();
         jdbcSkillDAO = new JdbcSkillDAOImpl();
     }
+
     public void create(Developer developer) {
         long id;
         String SQL = "INSERT INTO developers(name,salary) VALUES(?,?)";
@@ -163,4 +164,5 @@ public class JdbcDeveloperDAOImpl implements DeveloperDAO {
         }
         return developers;
     }
+
 }

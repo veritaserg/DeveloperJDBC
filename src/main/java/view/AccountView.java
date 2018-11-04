@@ -7,10 +7,12 @@ import java.util.List;
 
 public class AccountView {
     AccountController accountController;
-    public AccountView(){
+
+    public AccountView() {
         accountController = new AccountController();
     }
-    public void getAll(){
+
+    public void getAll() {
         List<Account> accounts = accountController.getAll();
         if (accounts.isEmpty()) {
             ConsoleHelper.writeToConsole("\nThere are no records to view.\n");

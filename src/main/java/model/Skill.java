@@ -16,6 +16,10 @@ public class Skill {
         this.name = name;
     }
 
+    public Skill(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

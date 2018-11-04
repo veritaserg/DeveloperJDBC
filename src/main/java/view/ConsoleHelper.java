@@ -35,6 +35,7 @@ public class ConsoleHelper {
                 switch (Integer.parseInt(readString())) {
                     case 0:
                         view.create();
+                        ConsoleHelper.writeToConsole("Command executed successfully.");
                         break;
                     case 1:
                         view.getAll();

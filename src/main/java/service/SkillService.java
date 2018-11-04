@@ -1,7 +1,6 @@
 package service;
 
 import dao.jdbc.JdbcSkillDAOImpl;
-import model.Developer;
 import model.Skill;
 
 import java.util.List;
