@@ -1,3 +1,5 @@
 language: java
+services:
+  - mysql
 sudo: false
 script: mvn clean verify
