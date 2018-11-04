@@ -39,4 +39,13 @@ private Long developerID;
     public void setDeveloperID(Long developerID) {
         this.developerID = developerID;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", data='" + data + '\'' +
+                ", developerID=" + developerID +
+                '}';
+    }
 }

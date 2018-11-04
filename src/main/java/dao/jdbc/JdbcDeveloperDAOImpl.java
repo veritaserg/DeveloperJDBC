@@ -49,7 +49,6 @@ public class JdbcDeveloperDAOImpl implements DeveloperDAO {
                 id = resultSet.getLong(1);
                 Account account = developer.getAccount();
                 account.setId(id);
-
                 jdbcAccountDAO.create(account);
             }
             try (PreparedStatement statement = connection.prepareStatement("INSERT developers_skills VALUES (?,?)")) {
@@ -59,7 +58,6 @@ public class JdbcDeveloperDAOImpl implements DeveloperDAO {
                     statement.addBatch();
                 }
                 statement.executeBatch();
-
                 connection.commit();
             }
         } catch (SQLException e) {
@@ -86,13 +84,10 @@ public class JdbcDeveloperDAOImpl implements DeveloperDAO {
                 statement.setLong(3, developer.getId());
                 statement.executeUpdate();
             }
-
             try (PreparedStatement statement = connection.prepareStatement(DELETE_SKILLS)) {
                 statement.setLong(1, developer.getId());
                 statement.executeUpdate();
-
             }
-
             try (PreparedStatement statement = connection.prepareStatement("INSERT developers_skills VALUES (?,?)")) {
                 for (Skill skill : developer.getSkills()) {
                     statement.setLong(1, developer.getId());
@@ -138,6 +133,27 @@ public class JdbcDeveloperDAOImpl implements DeveloperDAO {
     }
 
     public List<Developer> getAll() {
-        return null;
+        List<Developer> developers = new ArrayList<>();
+        String SQL = "SELECT * FROM developers";
+        try {
+            connection = Util.getConnection();
+            try (PreparedStatement statement = connection.prepareStatement(SQL)) {
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    Long developerId = resultSet.getLong("id");
+                    String name = resultSet.getString("name");
+                    Long salary = resultSet.getLong("salary");
+                    Account account = jdbcAccountDAO.getById(developerId);
+
+                }
+
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return developers;
     }
 }

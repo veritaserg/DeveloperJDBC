@@ -1,8 +1,15 @@
 package dao.jdbc;
 
 import dao.SkillDAO;
+import dao.util.Util;
+import model.Account;
 import model.Skill;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JdbcSkillDAOImpl implements SkillDAO {
@@ -23,6 +30,24 @@ public class JdbcSkillDAOImpl implements SkillDAO {
     }
 
     public List<Skill> getAll() {
-        return null;
+        List<Skill> skills = new ArrayList<>();
+        String SQL = "SELECT * FROM skills";
+        Connection connection;
+        try {
+            connection = Util.getConnection();
+            try (PreparedStatement statement = connection.prepareStatement(SQL)) {
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    Long skillId = resultSet.getLong("id");
+                    String name = resultSet.getString("name");
+                   skills.add(new Skill(skillId,name));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Util.disconnect();
+        }return skills;
     }
-}
+    }
+
