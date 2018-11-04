@@ -11,26 +11,13 @@ import java.util.*;
 
 public class JdbcDeveloperDAOImpl implements DeveloperDAO {
     JdbcAccountDAOImpl jdbcAccountDAO;
+    JdbcSkillDAOImpl jdbcSkillDAO;
     Connection connection;
 
     public JdbcDeveloperDAOImpl() {
         jdbcAccountDAO = new JdbcAccountDAOImpl();
+        jdbcSkillDAO = new JdbcSkillDAOImpl();
     }
-
-    public static void main(String[] args) {
-        JdbcDeveloperDAOImpl jdbcDeveloperDAO = new JdbcDeveloperDAOImpl();
-        Set<Skill> skills = new HashSet<>();
-        skills.add(new Skill((long) 1, "qwqw"));
-        //skills.add(new Skill((long) 2, "qwqw"));
-        Developer developer = new Developer((long) 44, "serg", 555L, skills, new Account("serg", 44L));
-
-//jdbcDeveloperDAO.create(developer);
-
-        // jdbcDeveloperDAO.delete((long) 38);
-        jdbcDeveloperDAO.update(developer);
-
-    }
-
     public void create(Developer developer) {
         long id;
         String SQL = "INSERT INTO developers(name,salary) VALUES(?,?)";
@@ -68,7 +55,31 @@ public class JdbcDeveloperDAOImpl implements DeveloperDAO {
     }
 
     public Developer getById(Long id) {
-        return null;
+        Developer developer = null;
+        String SQL = "SELECT * FROM developers WHERE id = ?";
+        try {
+            connection = Util.getConnection();
+
+            try (PreparedStatement statement = connection.prepareStatement(SQL)) {
+                statement.setLong(1, id);
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    String name = resultSet.getString("name");
+                    Long salary = resultSet.getLong("salary");
+                    Set<Skill> skills = jdbcSkillDAO.getSkillById(id);
+                    Account account = jdbcAccountDAO.getById(id);
+                    developer = new Developer(id, name, salary, skills, account);
+
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Util.disconnect();
+        }
+
+        return developer;
     }
 
     public void update(Developer developer) {
@@ -106,7 +117,6 @@ public class JdbcDeveloperDAOImpl implements DeveloperDAO {
 
         }
         jdbcAccountDAO.update(developer.getAccount());
-
     }
 
     public void delete(Long id) {
@@ -143,14 +153,12 @@ public class JdbcDeveloperDAOImpl implements DeveloperDAO {
                     Long developerId = resultSet.getLong("id");
                     String name = resultSet.getString("name");
                     Long salary = resultSet.getLong("salary");
+                    Set<Skill> skills = jdbcSkillDAO.getSkillById(developerId);
                     Account account = jdbcAccountDAO.getById(developerId);
 
+                    developers.add(new Developer(developerId, name, salary, skills, account));
                 }
-
-
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

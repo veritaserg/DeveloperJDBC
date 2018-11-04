@@ -1,5 +1,7 @@
 package dao;
 
+import model.Account;
+
 import java.util.List;
 
 public interface GenericDAO<T, ID> {

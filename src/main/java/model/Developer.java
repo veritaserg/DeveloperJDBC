@@ -63,4 +63,15 @@ public class Developer {
     public void setSkills(Set<Skill> skills) {
         this.skills = skills;
     }
+
+    @Override
+    public String toString() {
+        return "Developer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", skills=" + getSkills() +
+                ", account=" + account +
+                '}';
+    }
 }

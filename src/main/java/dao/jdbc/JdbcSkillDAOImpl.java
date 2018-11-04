@@ -10,29 +10,55 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class JdbcSkillDAOImpl implements SkillDAO {
-    public void create(Skill skill) {
+    Connection connection;
 
-    }
+    public void create(Skill skill) { }
 
     public Skill getById(Long id) {
         return null;
     }
 
-    public void update(Skill skill) {
+    public Set<Skill> getSkillById(Long id) {
+        Set<Skill> skills = new HashSet<>();
+        String SQL = "SELECT *\n" +
+                "         FROM skills\n" +
+                "             INNER JOIN developers_skills ON skills_id = skills.id\n" +
+                "         WHERE developers_id = ?";
+        try {
+            connection = Util.getConnection();
 
+            try (PreparedStatement statement = connection.prepareStatement(SQL)) {
+                statement.setLong(1, id);
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    Long skillIId = resultSet.getLong("id");
+                    String name = resultSet.getString("name");
+                    Long developersID = resultSet.getLong("developers_id");
+                    skills.add(new Skill(skillIId, name, developersID));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Util.disconnect();
+
+        }
+        return skills;
     }
 
-    public void delete(Long id) {
 
-    }
+    public void update(Skill skill) { }
+
+    public void delete(Long id) { }
 
     public List<Skill> getAll() {
         List<Skill> skills = new ArrayList<>();
         String SQL = "SELECT * FROM skills";
-        Connection connection;
         try {
             connection = Util.getConnection();
             try (PreparedStatement statement = connection.prepareStatement(SQL)) {
@@ -40,14 +66,15 @@ public class JdbcSkillDAOImpl implements SkillDAO {
                 while (resultSet.next()) {
                     Long skillId = resultSet.getLong("id");
                     String name = resultSet.getString("name");
-                   skills.add(new Skill(skillId,name));
+                    skills.add(new Skill(skillId, name));
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             Util.disconnect();
-        }return skills;
+        }
+        return skills;
     }
-    }
+}
 
