@@ -7,6 +7,9 @@ import java.util.List;
 
 public class SkillController {
     SkillService skillService;
+    public SkillController(){
+        skillService = new SkillService();
+    }
     public void create(Skill skill) {
         skillService.create(skill);
     }

@@ -7,6 +7,10 @@ import java.util.List;
 
 public class DeveloperController {
     DeveloperService developerService;
+    public DeveloperController(){
+        developerService = new DeveloperService();
+    }
+
     public void create(Developer developer) {
         developerService.create(developer);
     }

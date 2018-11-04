@@ -7,6 +7,9 @@ import java.util.List;
 
 public class AccountController {
     AccountService accountService;
+    public AccountController(){
+        accountService = new AccountService();
+    }
     public void create(Account account) {
         accountService.create(account);
     }

@@ -8,6 +8,9 @@ import java.util.List;
 
 public class AccountService {
     JdbcAccountDAOImpl jdbcAccountDAO;
+    public AccountService(){
+        jdbcAccountDAO = new JdbcAccountDAOImpl();
+    }
     public void create(Account account) {
 jdbcAccountDAO.create(account);
     }

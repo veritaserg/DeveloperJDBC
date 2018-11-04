@@ -69,7 +69,6 @@ public class JdbcDeveloperDAOImpl implements DeveloperDAO {
                     Set<Skill> skills = jdbcSkillDAO.getSkillById(id);
                     Account account = jdbcAccountDAO.getById(id);
                     developer = new Developer(id, name, salary, skills, account);
-
                 }
             }
 

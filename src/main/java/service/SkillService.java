@@ -8,6 +8,9 @@ import java.util.List;
 
 public class SkillService {
     JdbcSkillDAOImpl jdbcSkillDAO;
+    public SkillService(){
+        jdbcSkillDAO = new JdbcSkillDAOImpl();
+    }
     public void create(Skill skill) {
 jdbcSkillDAO.create(skill);
     }
