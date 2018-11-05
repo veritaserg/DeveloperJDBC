@@ -28,7 +28,9 @@
             <url>jdbc:mysql://127.0.0.1:3306/dev</url>
             <username>root</username>
             <password>1234</password>
-        </configuration>
+            <liquibase.promptOnNonLocalDatabase>false</liquibase.promptOnNonLocalDatabase>
+                    </configuration>
+
         <executions>
             <execution>
                 <phase>process-resources</phase>
