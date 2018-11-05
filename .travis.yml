@@ -9,3 +9,12 @@ cache:
   script:
     - ./mvnw clean install
     - bash <(curl -s https://codecov.io/bash)
+deploy:
+  -
+    on:
+      branch: release
+    provider: bintray
+    skip_cleanup: true
+    file: target/bin/bintray.json
+    user: nfrankel
+    key: $BINTRAY_API_KEY
