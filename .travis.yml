@@ -1,7 +1,8 @@
 language: java
 jdk: oraclejdk8
 install: true
-script: ./mvnw clean --file *.pom install
+script: ./mvnw clean  install
+- git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:master
 cache:
   directories:
   - $HOME/.m2
