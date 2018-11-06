@@ -24,11 +24,11 @@
         <version>3.6.2</version>
         <configuration>
             <changeLogFile>src/main/resources/org/liquibase/developers_table.xml</changeLogFile>
-            <driver>com.mysql.cj.jdbc.Driver</driver>
+            <driver>oracle.jdbc.driver.OracleDriver</driver>
             <url>jdbc:mysql://127.0.0.1:3306/dev</url>
             <username>root</username>
             <password>1234</password>
-            <liquibase.promptOnNonLocalDatabase>false</liquibase.promptOnNonLocalDatabase>
+            <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
                     </configuration>
 
         <executions>
