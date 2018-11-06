@@ -23,10 +23,8 @@
         <artifactId>liquibase-maven-plugin</artifactId>
         <version>3.6.2</version>
         <configuration>
-            <changeLogFile>src/main/resources/org/liquibase/developers_table.xml</changeLogFile>
-                      <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+              <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                     </configuration>
-
         <executions>
             <execution>
                 <phase>process-resources</phase>
