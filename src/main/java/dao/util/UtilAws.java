@@ -24,10 +24,9 @@ public class UtilAws {
         }
     }
     public static Connection getConnection() throws SQLException {
-        String connectionUrl = "jdbc:sqlserver://" + DATABASE_URL + ":" + SERVER_PORT + ";databaseName=" + DATABASE_NAME;
+        String connectionUrl = "jdbc:mysql://" + DATABASE_URL + ":" + SERVER_PORT + "/" + DATABASE_NAME;
         try {
-
-            connection = DriverManager.getConnection(connectionUrl, USER, PASSWORD);
+                    connection = DriverManager.getConnection(connectionUrl, USER, PASSWORD);
 
         } catch (SQLException e) {
             e.printStackTrace();
