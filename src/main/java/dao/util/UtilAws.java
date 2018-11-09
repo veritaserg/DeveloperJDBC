@@ -3,7 +3,7 @@ package dao.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import java.sql.Statement;
 
 
 public class UtilAws {
@@ -35,9 +35,29 @@ public class UtilAws {
         return connection;
     }
 
-    public static void main(String[] args) throws SQLException {
-     Connection connection = getConnection();
-    }
+
+
+
+//    public static void main(String[] args) throws SQLException {
+//     Connection connection = getConnection();
+//     Statement statement;
+//        statement = connection.createStatement();
+//
+//        String SQL = "CREATE TABLE developers " +
+//                "(id INTEGER not NULL, " +
+//                " name VARCHAR(50), " +
+//                " specialty VARCHAR (50), " +
+//                " salary INTEGER not NULL, " +
+//                " PRIMARY KEY (id))";
+//
+//        statement.executeUpdate(SQL);
+//        if(statement!=null){
+//            statement.close();
+//        }
+//        if(connection!=null){
+//            connection.close();
+//        }
+//    }
 
 
 
