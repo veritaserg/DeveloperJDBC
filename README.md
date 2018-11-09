@@ -1,5 +1,5 @@
 
-![Build Status](https://travis-ci.org/veritaserg/DeveloperJDBC.svg?branch=master)
+[![Build Status](https://travis-ci.org/veritaserg/DeveloperJDBC.svg?branch=master)](https://travis-ci.org/veritaserg/DeveloperJDBC)
 
 
 Необходимо создать БД, которая содержит следующие таблицы:
