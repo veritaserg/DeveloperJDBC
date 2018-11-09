@@ -3,12 +3,12 @@ package dao.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import java.sql.Statement;
 
 
 public class UtilAws {
     static final String DATABASE_URL = "mysqlaws.c05bmdvhonqe.ap-northeast-1.rds.amazonaws.com";
- private static final String DATABASE_DRIVER = "com.simba.athena.jdbc.Driver";
+ private static final String DATABASE_DRIVER = "com.amazon.redshift.jdbc42.Driver";
     private static final int SERVER_PORT = 3306;
     static final String USER = "admin";
     static final String PASSWORD = "qwerty123";
