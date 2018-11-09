@@ -21,14 +21,13 @@
    <plugin>
         <groupId>org.liquibase</groupId>
         <artifactId>liquibase-maven-plugin</artifactId>
-        <version>3.5.4</version>
+        <version>3.0.5</version>
         <configuration>
               <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                     </configuration>
         <executions>
             <execution>
-                <phase>process-resources</phase>
-                <goals>
+                               <goals>
                     <goal>update</goal>
                 </goals>
             </execution>
@@ -46,6 +45,11 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.11</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws.athena.jdbc</groupId>
+            <artifactId>atl-athena-jdbc-driver</artifactId>
+            <version>1.0.2-atlassian-1</version>
         </dependency>
     </dependencies>
 </project>
