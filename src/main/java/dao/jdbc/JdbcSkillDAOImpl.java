@@ -18,21 +18,20 @@ public class JdbcSkillDAOImpl implements SkillDAO {
     Connection connection;
 
     public void create(Skill skill) {
-        String SQL = "INSERT INTO skills(name) VALUES(?)";
+        String SQL = "INSERT INTO dev.skills(name) VALUES(?)";
         try {
             connection = Util.getConnection();
             connection.setAutoCommit(false);
             try (PreparedStatement statement = connection.prepareStatement(SQL)) {
                 statement.setString(1,skill.getName());
                                 statement.executeUpdate();
+                               connection.commit();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             Util.disconnect();
         }
-
-
 
     }
 
