@@ -1,7 +1,3 @@
-.. image:: https://secure.travis-ci.org/veritaserg/DeveloperJDBC.png
-    :target: https://travis-ci.org/veritaserg/DeveloperJDBC
-
-
 Необходимо создать БД, которая содержит следующие таблицы:
 
 - developers (хранит данные о разработчиках)
