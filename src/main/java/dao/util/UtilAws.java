@@ -8,7 +8,9 @@ import java.sql.Statement;
 
 public class UtilAws {
     static final String DATABASE_URL = "mysqlaws.c05bmdvhonqe.ap-northeast-1.rds.amazonaws.com";
- private static final String DATABASE_DRIVER = "com.amazon.redshift.jdbc4.Driver";
+ private static final String DATABASE_DRIVER = "com.simba.athena.jdbc.Driver";
+  //  com.amazonaws.athena.jdbc.AthenaDriver
+   // com.simba.athena.jdbc.Driver
     private static final int SERVER_PORT = 3306;
     static final String USER = "admin";
     static final String PASSWORD = "qwerty123";
@@ -38,11 +40,11 @@ public class UtilAws {
 
 
 
-//    public static void main(String[] args) throws SQLException {
-//     Connection connection = getConnection();
-//     Statement statement;
-//        statement = connection.createStatement();
-
+    public static void main(String[] args) throws SQLException {
+        Connection connection = getConnection();
+        Statement statement;
+        statement = connection.createStatement();
+    }
 //        String SQL = "CREATE TABLE developers " +
 //                "(id INTEGER not NULL, " +
 //                " name VARCHAR(50), " +
