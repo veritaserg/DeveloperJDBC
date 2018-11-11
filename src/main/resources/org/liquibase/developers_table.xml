@@ -51,4 +51,8 @@
     </changeSet>
 
 
+    <loadData encoding="UTF-8" file="src/main/resources/org/liquibase/skills.csv" tableName="skills" separator=";">
+                <column name="name" type="STRING"/>
+    </loadData>
+
 </databaseChangeLog>
