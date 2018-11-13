@@ -2,6 +2,7 @@ package dao.jdbc;
 
 import dao.SkillDAO;
 import dao.util.Util;
+import dao.util.UtilAws;
 import model.Account;
 import model.Skill;
 
@@ -78,7 +79,7 @@ public class JdbcSkillDAOImpl implements SkillDAO {
         List<Skill> skills = new ArrayList<>();
         String SQL = "SELECT * FROM skills";
         try {
-            connection = Util.getConnection();
+            connection = UtilAws.getConnection();
             try (PreparedStatement statement = connection.prepareStatement(SQL)) {
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
@@ -90,7 +91,11 @@ public class JdbcSkillDAOImpl implements SkillDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            Util.disconnect();
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return skills;
     }
