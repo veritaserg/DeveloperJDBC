@@ -22,12 +22,11 @@
                         <artifactId>liquibase-maven-plugin</artifactId>
                         <version>3.3.2</version>
                         <configuration>
-                            <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+                            <propertyFile>liquibase/liquibase.properties</propertyFile>
                         </configuration>
                         <executions>
                             <execution>
-                                <phase>process-resources</phase>
-                                <goals>
+                                                               <goals>
                                     <goal>update</goal>
                                 </goals>
                             </execution>
