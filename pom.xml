@@ -49,12 +49,7 @@
             <artifactId>snakeyaml</artifactId>
             <version>1.18</version>
         </dependency>
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.4</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.syncron.amazonaws/simba-athena-jdbc-driver -->
+             <!-- https://mvnrepository.com/artifact/com.syncron.amazonaws/simba-athena-jdbc-driver -->
         <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-athena -->
         <dependency>
             <groupId>com.amazonaws</groupId>
